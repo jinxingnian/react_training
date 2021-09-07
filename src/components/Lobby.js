@@ -1,8 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import PlayerCard from "./PlayerCard";
 import { colorContext } from "../context/colorContext";
+import Signup from "./Signup";
+import Login from "./Login";
+import Logout from "./Logout";
+import PlayerPicture from "./PlayerPicture";
+import { db } from "../firebase/firebaseInit";
+import { collection } from "@firebase/firestore";
+
+// const colorCollection = collection(db, "playerColor");
+// const c1Doc = doc(colorCollection, 'p1');
 
 const colorList = ["red", "green", "blue", "yellow"];
+
+// db.collection('player1').get().then((snapshot) => {
+//   console.log(snapshot.docs);
+// })
+// const playerColorCollection = collection(db, "playerColor");
+
+// const player1Doc = doc(db, 'playerColor', 'p1');
+// const p1Snap = getDoc(player1Doc);
+
+// console.log("document data: ", p1Snap.data);
+
 
 const Lobby = () => {
   const ColorContext = useContext(colorContext);
@@ -12,6 +32,10 @@ const Lobby = () => {
   return (
     <div className="lobby">
       <h1 style={{ textAlign: "center" }}>Game Lobby</h1>
+      <Signup />
+      <Login />
+      <Logout />
+      <PlayerPicture />
       <PlayerCard
         text="a"
         backgroundColor={ColorContext.player1}
