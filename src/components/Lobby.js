@@ -7,21 +7,10 @@ import Logout from "./Logout";
 import PlayerPicture from "./PlayerPicture";
 import { db } from "../firebase/firebaseInit";
 import { collection } from "@firebase/firestore";
+import TestButton from "./TestButton";
 
-// const colorCollection = collection(db, "playerColor");
-// const c1Doc = doc(colorCollection, 'p1');
 
 const colorList = ["red", "green", "blue", "yellow"];
-
-// db.collection('player1').get().then((snapshot) => {
-//   console.log(snapshot.docs);
-// })
-// const playerColorCollection = collection(db, "playerColor");
-
-// const player1Doc = doc(db, 'playerColor', 'p1');
-// const p1Snap = getDoc(player1Doc);
-
-// console.log("document data: ", p1Snap.data);
 
 
 const Lobby = () => {
@@ -32,37 +21,26 @@ const Lobby = () => {
   return (
     <div className="lobby">
       <h1 style={{ textAlign: "center" }}>Game Lobby</h1>
+      <TestButton />
       <Signup />
       <Login />
       <Logout />
       <PlayerPicture />
       <PlayerCard
         text="a"
-        backgroundColor={ColorContext.player1}
-        changeColor={ColorContext.setPlayer1}
-        playerColor={ColorContext.player1}
-        colorList={colorList}
+        pid='p1'
       />
       <PlayerCard
         text="b"
-        backgroundColor={ColorContext.player2}
-        changeColor={ColorContext.setPlayer2}
-        playerColor={ColorContext.player2}
-        colorList={colorList}
+        pid='p2'
       />
       <PlayerCard
         text="c"
-        backgroundColor={ColorContext.player3}
-        changeColor={ColorContext.setPlayer3}
-        playerColor={ColorContext.player3}
-        colorList={colorList}
+        pid='p3'
       />
       <PlayerCard
         text="d"
-        backgroundColor={ColorContext.player4}
-        changeColor={ColorContext.setPlayer4}
-        playerColor={ColorContext.player4}
-        colorList={colorList}
+        pid='p4'
       />
     </div>
   );
